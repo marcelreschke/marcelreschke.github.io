@@ -1,0 +1,12 @@
+{
+  "name": "regionalagentur-wr_sketch",
+  "version": "1.0.0",
+  "description": "HTML Sketch Reginalagentur Westfälisches Ruhrgebiet",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "./"
+  },
+  "author": "Marcel Reschke",
+  "license": "ISC"
+}
