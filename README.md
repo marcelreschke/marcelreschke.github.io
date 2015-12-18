@@ -1,4 +1,4 @@
-# UiKit-Sketching :cat:
+# UiKit-Sketching :snake::money_with_wings::bank:
 
 HTML5 Sketching with UiKit
 
