@@ -5,23 +5,26 @@
  */
 
 // Load plugins
-var gulp = require('gulp'),
-    sass = require('gulp-sass'),
-    autoprefixer = require('gulp-autoprefixer'),
-    minifycss = require('gulp-minify-css'),
-    jshint = require('gulp-jshint'),
-    uglify = require('gulp-uglify'),
-    imagemin = require('gulp-imagemin'),
-    rename = require('gulp-rename'),
-    concat = require('gulp-concat'),
-    notify = require('gulp-notify'),
-    cache = require('gulp-cache'),
-    livereload = require('gulp-livereload'),
-    del = require('del');
-    sourcemaps = require('gulp-sourcemaps');
-    addsrc = require('gulp-add-src');
-    connect = require('gulp-connect');
-    order = require('gulp-order')
+var gulp              = require('gulp'),
+    sass              = require('gulp-sass'),
+    autoprefixer      = require('gulp-autoprefixer'),
+    minifycss         = require('gulp-minify-css'),
+    jshint            = require('gulp-jshint'),
+    uglify            = require('gulp-uglify'),
+    imagemin          = require('gulp-imagemin'),
+    rename            = require('gulp-rename'),
+    concat            = require('gulp-concat'),
+    notify            = require('gulp-notify'),
+    cache             = require('gulp-cache'),
+    livereload        = require('gulp-livereload'),
+    del               = require('del');
+    sourcemaps        = require('gulp-sourcemaps');
+    addsrc            = require('gulp-add-src');
+    connect           = require('gulp-connect');
+    order             = require('gulp-order');
+    open              = require('gulp-open');
+    port              = process.env.port || 8080
+
 
 
 // Styles
@@ -77,9 +80,19 @@ gulp.task('clean', function() {
 
 gulp.task('connect', function() {
   connect.server({
+    port: port,
     root: 'dist',
     livereload: true
   });
+});
+
+//launch browser in port
+gulp.task('open', function(){
+  var options = {
+    uri: 'http://localhost:' + port
+  }
+  gulp.src(__filename)
+  .pipe(open(options))
 });
 
 // Default task
