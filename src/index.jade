@@ -11,9 +11,10 @@ html(lang='en-gb', dir='ltr')
   body
     .uk-container.uk-container-center.uk-margin-top.uk-margin-bottom
       nav.uk-navbar
-        a.uk-navbar-brand.uk-hidden-small(href='/') Brand
-        ul.uk-navbar-nav.uk-hidden-small
-          li.uk-active: a(href='layouts_frontpage.html') Frontpage
+        a.uk-navbar-brand.uk-hidden-small(href='/')
+          img(src='assets/img/uikit-sketching-logo@2.png', width='190px', height='40px')
+        ul.uk-navbar-nav.uk-hidden-small.uk-navbar-flip
+          li.uk-active: a(href='/') Home
           li: a(href='layouts_portfolio.html') Portfolio
           li: a(href='layouts_blog.html') Blog
           li: a(href='layouts_documentation.html') Documentation
