@@ -7,6 +7,7 @@
 // Load plugins
 var gulp              = require('gulp'),
     sass              = require('gulp-sass'),
+    jade              = require('gulp-jade'),
     autoprefixer      = require('gulp-autoprefixer'),
     minifycss         = require('gulp-minify-css'),
     jshint            = require('gulp-jshint'),
@@ -17,13 +18,13 @@ var gulp              = require('gulp'),
     notify            = require('gulp-notify'),
     cache             = require('gulp-cache'),
     livereload        = require('gulp-livereload'),
-    del               = require('del');
-    sourcemaps        = require('gulp-sourcemaps');
-    addsrc            = require('gulp-add-src');
-    connect           = require('gulp-connect');
-    order             = require('gulp-order');
-    open              = require('gulp-open');
-    port              = process.env.port || 8080
+    del               = require('del'),
+    sourcemaps        = require('gulp-sourcemaps'),
+    addsrc            = require('gulp-add-src'),
+    connect           = require('gulp-connect'),
+    order             = require('gulp-order'),
+    open              = require('gulp-open'),
+    port              = process.env.port || 8080;
 
 
 
@@ -64,6 +65,15 @@ gulp.task('html', function () {
     .pipe(connect.reload());
 });
 
+gulp.task('jade', function () {
+  gulp.src('src/**/*.jade')
+    .pipe(jade())
+    .pipe(gulp.dest('dist/'))
+    .pipe(connect.reload())
+    .pipe(notify({ message: 'Jade task complete' }));
+});
+
+
 // Images
 gulp.task('images', function() {
   return gulp.src('src/assets/images/**/*')
@@ -97,7 +107,7 @@ gulp.task('open', function(){
 
 // Default task
 gulp.task('default', ['clean', 'connect', 'watch'], function() {
-  gulp.start('styles', 'scripts', 'images');
+  gulp.start('jade', 'styles', 'scripts', 'images');
 });
 
 // Watch
@@ -109,8 +119,11 @@ gulp.task('watch', function() {
   // Watch .js files
   gulp.watch('src/assets/scripts/**/*.js', ['scripts']);
 
+  // Watch .jade files
+  gulp.watch(['src/**/*.jade'], ['jade']);
+
   // Watch .html files
-  gulp.watch(['dist/**/*.html'], ['html']);
+  //gulp.watch(['dist/**/*.html'], ['html']);
 
   // Watch image files
   gulp.watch('src/assets/images/**/*', ['images']);
