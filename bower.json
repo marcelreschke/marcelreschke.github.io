@@ -1,0 +1,23 @@
+{
+  "name": "regionalagentur-wr_sketch",
+  "description": "HTML Sketch Reginalagentur Westfälisches Ruhrgebiet",
+  "main": "index.js",
+  "authors": [
+    "Marcel Reschke"
+  ],
+  "dependencies": {
+    "uikit": "latest"
+  },
+  "license": "ISC",
+  "moduleType": [],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/bower_components",
+    "test",
+    "tests"
+  ]
+}
