@@ -30,6 +30,7 @@
     "jshint": "^2.8.0"
   },
   "dependencies": {
+    "gulp-jade": "^1.1.0",
     "gulp-open": "^1.0.0"
   }
 }
