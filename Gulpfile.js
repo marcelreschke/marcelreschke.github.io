@@ -18,11 +18,15 @@ var gulp = require('gulp'),
     cache = require('gulp-cache'),
     livereload = require('gulp-livereload'),
     del = require('del');
+    sourcemaps = require('gulp-sourcemaps');
+
 
 // Styles
 gulp.task('styles', function() {
-  gulp.src('./src/assets/styles/main.scss', { style: 'expanded' })
-    .pipe(sass().on('error', sass.logError))
+  gulp.src('./src/assets/styles/main.scss', { sourcemap: true, style: 'expanded' })
+    .pipe(sourcemaps.init())
+      .pipe(sass().on('error', sass.logError))
+    .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('dist/assets/css'))
     .pipe(notify({ message: 'Styles task complete' }));
 });
