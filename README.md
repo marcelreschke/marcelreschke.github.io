@@ -4,7 +4,12 @@ HTML5 Sketching with UiKit
 
 ## Installation
 
+
+    $ git clone https://github.com/marcelreschke/uikit-sketching.git
+    $ cd uikit-sketching/
     $ npm install
+    $ bower install
+    $ gulp
 
 ## Thanks
 
