@@ -36,6 +36,7 @@ gulp.task('scripts', function() {
   return gulp.src('src/assets/scripts/**/*.js')
     .pipe(jshint('.jshintrc'))
     .pipe(jshint.reporter('default'))
+    .pipe(addsrc('src/assets/vendor/jquery/dist/jquery.min.js'))
     .pipe(concat('main.js'))
     .pipe(gulp.dest('dist/assets/js'))
     .pipe(rename({ suffix: '.min' }))
