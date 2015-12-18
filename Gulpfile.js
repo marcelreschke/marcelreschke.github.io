@@ -77,7 +77,7 @@ gulp.task('jade', function () {
 // Images
 gulp.task('images', function() {
   return gulp.src('src/assets/images/**/*')
-    .pipe(cache(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true })))
+    .pipe(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true }))
     .pipe(gulp.dest('dist/assets/img'))
     .pipe(connect.reload())
     .pipe(notify({ message: 'Images task complete' }));
@@ -106,8 +106,8 @@ gulp.task('open', function(){
 });
 
 // Default task
-gulp.task('default', ['clean', 'connect', 'watch'], function() {
-  gulp.start('jade', 'styles', 'scripts', 'images');
+gulp.task('default', ['clean', 'jade', 'styles', 'scripts', 'images', 'connect', 'watch', 'open'], function() {
+  gulp.start();
 });
 
 // Watch
