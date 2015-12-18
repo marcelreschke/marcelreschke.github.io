@@ -19,6 +19,7 @@ var gulp = require('gulp'),
     livereload = require('gulp-livereload'),
     del = require('del');
     sourcemaps = require('gulp-sourcemaps');
+    addsrc = require('gulp-add-src');
 
 
 // Styles
