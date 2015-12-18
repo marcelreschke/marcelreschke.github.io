@@ -21,11 +21,8 @@ var gulp = require('gulp'),
 
 // Styles
 gulp.task('styles', function() {
-  return sass('src/assets/styles/main.scss', { style: 'expanded' })
-    .pipe(autoprefixer('last 2 version'))
-    .pipe(gulp.dest('dist/assets/css'))
-    .pipe(rename({ suffix: '.min' }))
-    .pipe(minifycss())
+  gulp.src('./src/assets/styles/main.scss', { style: 'expanded' })
+    .pipe(sass().on('error', sass.logError))
     .pipe(gulp.dest('dist/assets/css'))
     .pipe(notify({ message: 'Styles task complete' }));
 });
