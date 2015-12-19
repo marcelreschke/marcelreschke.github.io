@@ -11,8 +11,6 @@ HTML5 Sketching with UiKit
     $ bower install
     $ gulp
 
-## Thanks
-
 **UiKit-Sketching** © 2014+, Marcel Resche, Dortmund, Germany. Released under the [MIT License].<br>
 Authored and maintained by Marcel Reschke.
 
